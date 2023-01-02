@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../main.dart';
+import '../../main.dart';
 
-class PageSecond extends ConsumerWidget {
-  const PageSecond({super.key});
+class PageFirst extends ConsumerWidget {
+  const PageFirst({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -13,11 +13,17 @@ class PageSecond extends ConsumerWidget {
           onPressed: () {
             ref.read(showAppBar.notifier).state = true;
 
-            Navigator.pop(context);
+            Navigator.pushNamed(context, '/page_second');
           },
-          child: const Text('Back to PageFirst'),
+          child: const Text('Go to PageSecond'),
         ),
         Text(ref.watch(showAppBar) ? 'Show' : 'Not Show'),
+        ElevatedButton(
+          onPressed: () {
+            ref.read(providerFirst.notifier).changeFruit('Banana');
+          },
+          child: Text(ref.watch(providerFirst).fruit),
+        ),
       ],
     );
   }

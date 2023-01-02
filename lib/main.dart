@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/presentation.pages/page_first.dart';
-import 'package:riverpod_project/presentation.pages/page_second.dart';
+import 'presentation/pages/page_first.dart';
+import 'presentation/pages/page_second.dart';
+import 'presentation/pages/page_third.dart';
+import 'presentation/state_management/riverpod/provider_first.dart';
+
+final providerFirst = ChangeNotifierProvider((ref) => ProviderFirst());
 
 final showAppBar = StateProvider<bool>((ref) {
   return true;
@@ -25,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const PageFirst(),
         '/page_second': (context) => const PageSecond(),
+        '/page_third': (context) => const PageThird(),
       },
       builder: (context, child) {
         return Consumer(
