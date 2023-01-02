@@ -6,10 +6,7 @@ import 'presentation/pages/page_third.dart';
 import 'presentation/state_management/riverpod/provider_first.dart';
 
 final providerFirst = ChangeNotifierProvider((ref) => ProviderFirst());
-
-final showAppBar = StateProvider<bool>((ref) {
-  return true;
-});
+final showAppBar = StateProvider<bool>((ref) => true);
 
 void main() {
   runApp(

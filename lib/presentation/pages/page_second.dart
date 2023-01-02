@@ -11,8 +11,6 @@ class PageSecond extends ConsumerWidget {
       children: [
         ElevatedButton(
           onPressed: () {
-            ref.read(showAppBar.notifier).state = false;
-
             Navigator.pushNamed(context, '/page_third');
           },
           child: const Text('Go to PageThird'),

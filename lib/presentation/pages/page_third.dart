@@ -8,16 +8,15 @@ class PageThird extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final provider = ProviderThird();
+    final providerThird = ProviderThird();
 
     return Column(
       children: [
-        Text(ref.watch(showAppBar) ? 'Show' : 'Not Show'),
         ElevatedButton(
           onPressed: () {
-            provider.counter.value++;
+            providerThird.counter.value++;
           },
-          child: Text('${provider.counter.value}'),
+          child: Text('${providerThird.counter.value}'),
         ),
       ],
     );

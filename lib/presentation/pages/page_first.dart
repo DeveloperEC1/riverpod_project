@@ -11,7 +11,7 @@ class PageFirst extends ConsumerWidget {
       children: [
         ElevatedButton(
           onPressed: () {
-            ref.read(showAppBar.notifier).state = true;
+            ref.read(showAppBar.notifier).state = false;
 
             Navigator.pushNamed(context, '/page_second');
           },
