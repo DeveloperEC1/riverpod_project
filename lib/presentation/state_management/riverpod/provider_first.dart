@@ -1,19 +1,29 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'dart:async';
 import '../../../data/models/stream_model.dart';
 
 class ProviderFirst extends ChangeNotifier {
-  final StreamController<StreamModel> _streamController =
-      StreamController<StreamModel>();
-
+  late StreamController<StreamModel> streamController;
+  late TextEditingController textEditingController;
   String _fruit = 'Unknown';
 
-  String get fruitGet => _fruit;
+  ProviderFirst() {
+    streamController = StreamController<StreamModel>();
+    textEditingController = TextEditingController();
+  }
 
-  StreamController<StreamModel> get streamControllerGet => _streamController;
+  String get fruitGet => _fruit;
 
   void setFruit(String fruit) {
     _fruit = fruit;
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    streamController.close();
+    textEditingController.dispose();
+
+    super.dispose();
   }
 }

@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../state_management/riverpod/provider_third.dart';
 import 'dart:async';
+import '../state_management/riverpod/provider_third.dart';
 
 class PageThird extends HookConsumerWidget {
   const PageThird({super.key});

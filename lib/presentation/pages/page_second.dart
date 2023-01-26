@@ -20,8 +20,7 @@ class PageSecond extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            providerFirstVar.streamControllerGet
-                .add(StreamModel('update_fruit'));
+            providerFirstVar.streamController.add(StreamModel('update_fruit'));
           },
           child: const Text('Update fruit'),
         ),

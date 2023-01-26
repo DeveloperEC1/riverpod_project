@@ -12,18 +12,17 @@ class PageFirst extends ConsumerStatefulWidget {
 class _PageFirstState extends ConsumerState<PageFirst> {
   @override
   void initState() {
-    super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final providerFirstVar = ref.watch(providerFirst);
-      var stream = providerFirstVar.streamControllerGet.stream;
 
-      stream.listen((event) {
+      providerFirstVar.streamController.stream.listen((event) {
         if (event.state == 'update_fruit') {
           providerFirstVar.setFruit('Unknown');
         }
       });
     });
+
+    super.initState();
   }
 
   @override
@@ -32,6 +31,7 @@ class _PageFirstState extends ConsumerState<PageFirst> {
 
     return Column(
       children: [
+        TextField(controller: providerFirstVar.textEditingController),
         ElevatedButton(
           onPressed: () {
             ref.read(showAppBar.notifier).state = false;
