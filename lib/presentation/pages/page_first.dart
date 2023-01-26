@@ -12,17 +12,19 @@ class PageFirst extends ConsumerStatefulWidget {
 class _PageFirstState extends ConsumerState<PageFirst> {
   @override
   void initState() {
+    super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final providerFirstVar = ref.watch(providerFirst);
 
       providerFirstVar.streamController.stream.listen((event) {
-        if (event.state == 'update_fruit') {
+        if (event.state == 'init_data') {
+          providerFirstVar.initData();
+        } else if (event.state == 'update_fruit') {
           providerFirstVar.setFruit('Unknown');
         }
       });
     });
-
-    super.initState();
   }
 
   @override

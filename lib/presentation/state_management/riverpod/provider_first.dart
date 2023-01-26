@@ -14,6 +14,11 @@ class ProviderFirst extends ChangeNotifier {
 
   String get fruitGet => _fruit;
 
+  void initData() {
+    _fruit = 'Unknown';
+    notifyListeners();
+  }
+
   void setFruit(String fruit) {
     _fruit = fruit;
     notifyListeners();
@@ -21,9 +26,9 @@ class ProviderFirst extends ChangeNotifier {
 
   @override
   void dispose() {
+    super.dispose();
+
     streamController.close();
     textEditingController.dispose();
-
-    super.dispose();
   }
 }
