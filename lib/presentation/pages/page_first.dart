@@ -2,33 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../main.dart';
 
-class PageFirst extends ConsumerStatefulWidget {
-  const PageFirst({Key? key}) : super(key: key);
+class PageFirst extends ConsumerWidget {
+  const PageFirst({super.key});
 
   @override
-  ConsumerState<PageFirst> createState() => _PageFirstState();
-}
-
-class _PageFirstState extends ConsumerState<PageFirst> {
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final providerFirstVar = ref.watch(providerFirst);
-
-      providerFirstVar.streamController.stream.listen((event) {
-        if (event.state == 'init_data') {
-          providerFirstVar.initData();
-        } else if (event.state == 'update_fruit') {
-          providerFirstVar.setFruit('Unknown');
-        }
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final providerFirstVar = ref.watch(providerFirst);
 
     return Column(
