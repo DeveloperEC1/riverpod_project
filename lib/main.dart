@@ -5,7 +5,7 @@ import 'presentation/pages/page_second.dart';
 import 'presentation/pages/page_third.dart';
 import 'presentation/state_management/riverpod/provider_first.dart';
 
-final providerFirst = ChangeNotifierProvider((ref) => ProviderFirst());
+final providerFirst = ChangeNotifierProvider.autoDispose((ref) => ProviderFirst());
 final showAppBar = StateProvider<bool>((ref) => true);
 
 void main() {
