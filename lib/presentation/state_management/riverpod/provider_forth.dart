@@ -1,18 +1,17 @@
+import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/data/models/provider_forth_model.dart';
 import '../../../data/models/stream_model.dart';
 
-class ProviderFirst extends ChangeNotifier {
-  StreamController<StreamModel> streamController = StreamController.broadcast();
-  TextEditingController textEditingController = TextEditingController();
-  String _fruit = 'Unknown';
-
-  ProviderFirst() {
+class ProviderForth extends StateNotifier<ProviderForthModel> {
+  ProviderForth() : super(const ProviderForthModel()) {
     initListeners();
   }
 
-  String get fruitGet => _fruit;
+  StreamController<StreamModel> streamController = StreamController.broadcast();
+  TextEditingController textEditingController = TextEditingController();
 
   void initListeners() {
     streamController.stream.listen((event) {
@@ -29,13 +28,11 @@ class ProviderFirst extends ChangeNotifier {
   }
 
   void initData() {
-    _fruit = 'Unknown';
-    notifyListeners();
+    state = state.copyWith(fruit: 'Unknown');
   }
 
   void setFruit(String fruit) {
-    _fruit = fruit;
-    notifyListeners();
+    state = state.copyWith(fruit: fruit);
   }
 
   @override
