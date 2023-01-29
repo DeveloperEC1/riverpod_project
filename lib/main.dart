@@ -4,8 +4,8 @@ import 'data/models/forth_model/forth_model.dart';
 import 'presentation/pages/page_first.dart';
 import 'presentation/pages/page_second.dart';
 import 'presentation/pages/page_third.dart';
-import 'presentation/state_management/providers/provider_first.dart';
-import 'presentation/state_management/providers/provider_forth.dart';
+import 'presentation/providers/provider_first.dart';
+import 'presentation/providers/provider_forth.dart';
 
 final providerFirst =
     ChangeNotifierProvider.autoDispose((ref) => ProviderFirst());
