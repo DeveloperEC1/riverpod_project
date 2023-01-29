@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/presentation/pages/page_forth.dart';
+import 'object_box.dart';
 import 'data/models/forth_model/forth_model.dart';
 import 'presentation/pages/page_first.dart';
 import 'presentation/pages/page_second.dart';
@@ -15,7 +16,12 @@ final providerForth =
         (ref) => ProviderForth());
 final showAppBar = StateProvider<bool>((ref) => true);
 
-void main() {
+late ObjectBox objectBox;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  objectBox = await ObjectBox.create();
+
   runApp(
     const ProviderScope(
       child: MyApp(),
