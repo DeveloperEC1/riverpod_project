@@ -39,9 +39,11 @@ class ProviderForth extends StateNotifier<ForthModel> {
   }
 
   void getAllActivities() {
-    restClientRepository
-        .getAllActivities()
-        .then((value) => state = state.copyWith(activity: value.activity));
+    restClientRepository.getAllActivities().then(
+          (value) => {
+            state = state.copyWith(activity: value.activity),
+          },
+        );
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/presentation/pages/page_forth.dart';
 import 'data/models/forth_model/forth_model.dart';
 import 'presentation/pages/page_first.dart';
 import 'presentation/pages/page_second.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => const PageFirst(),
+        '/': (context) => const PageForth(),
         '/page_second': (context) => const PageSecond(),
         '/page_third': (context) => const PageThird(),
       },

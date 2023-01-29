@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_project/data/models/activities_model.dart';
 import 'rest_client.dart';
 
@@ -11,7 +11,6 @@ class RestClientRepository {
 
   RestClientRepository.internal();
 
-  final logger = Logger();
   final client = RestClient(Dio());
 
   Future<ActivitiesModel> getAllActivities() async {
@@ -24,9 +23,13 @@ class RestClientRepository {
       switch (obj.runtimeType) {
         case DioError:
           final res = (obj as DioError).response;
-          logger.e("Got error : ${res?.statusCode} -> ${res?.statusMessage}");
+          if (kDebugMode) {
+            print("${res?.statusMessage}");
+          }
           break;
       }
+
+      throw Exception("Error");
     });
 
     return activitiesModel;
