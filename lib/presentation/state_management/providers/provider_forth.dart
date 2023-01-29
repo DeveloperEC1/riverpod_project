@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/data/models/provider_forth_model.dart';
+import 'package:riverpod_project/data/models/forth_model/forth_model.dart';
 import '../../../data/models/stream_model.dart';
 
-class ProviderForth extends StateNotifier<ProviderForthModel> {
-  ProviderForth() : super(const ProviderForthModel()) {
+class ProviderForth extends StateNotifier<ForthModel> {
+  ProviderForth() : super(const ForthModel()) {
     initListeners();
   }
 

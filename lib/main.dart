@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_project/presentation/state_management/riverpod/provider_forth.dart';
-import 'data/models/provider_forth_model.dart';
+import 'data/models/forth_model/forth_model.dart';
 import 'presentation/pages/page_first.dart';
 import 'presentation/pages/page_second.dart';
 import 'presentation/pages/page_third.dart';
-import 'presentation/state_management/riverpod/provider_first.dart';
+import 'presentation/state_management/providers/provider_first.dart';
+import 'presentation/state_management/providers/provider_forth.dart';
 
 final providerFirst =
     ChangeNotifierProvider.autoDispose((ref) => ProviderFirst());
 final providerForth =
-    StateNotifierProvider.autoDispose<ProviderForth, ProviderForthModel>(
+    StateNotifierProvider.autoDispose<ProviderForth, ForthModel>(
         (ref) => ProviderForth());
 final showAppBar = StateProvider<bool>((ref) => true);
 
