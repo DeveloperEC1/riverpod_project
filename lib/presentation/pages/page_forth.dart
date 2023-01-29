@@ -28,6 +28,7 @@ class PageForth extends ConsumerWidget {
           },
           child: Text(providerForthWatch.fruit),
         ),
+        Text(providerForthWatch.activity),
       ],
     );
   }

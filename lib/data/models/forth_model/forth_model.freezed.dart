@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ForthModel {
   String get fruit => throw _privateConstructorUsedError;
+  String get activity => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ForthModelCopyWith<ForthModel> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $ForthModelCopyWith<$Res> {
           ForthModel value, $Res Function(ForthModel) then) =
       _$ForthModelCopyWithImpl<$Res, ForthModel>;
   @useResult
-  $Res call({String fruit});
+  $Res call({String fruit, String activity});
 }
 
 /// @nodoc
@@ -46,11 +47,16 @@ class _$ForthModelCopyWithImpl<$Res, $Val extends ForthModel>
   @override
   $Res call({
     Object? fruit = null,
+    Object? activity = null,
   }) {
     return _then(_value.copyWith(
       fruit: null == fruit
           ? _value.fruit
           : fruit // ignore: cast_nullable_to_non_nullable
+              as String,
+      activity: null == activity
+          ? _value.activity
+          : activity // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -64,7 +70,7 @@ abstract class _$$_ForthModelCopyWith<$Res>
       __$$_ForthModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String fruit});
+  $Res call({String fruit, String activity});
 }
 
 /// @nodoc
@@ -79,11 +85,16 @@ class __$$_ForthModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? fruit = null,
+    Object? activity = null,
   }) {
     return _then(_$_ForthModel(
       fruit: null == fruit
           ? _value.fruit
           : fruit // ignore: cast_nullable_to_non_nullable
+              as String,
+      activity: null == activity
+          ? _value.activity
+          : activity // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -92,15 +103,18 @@ class __$$_ForthModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ForthModel implements _ForthModel {
-  const _$_ForthModel({this.fruit = 'Unknown'});
+  const _$_ForthModel({this.fruit = 'Unknown', this.activity = ''});
 
   @override
   @JsonKey()
   final String fruit;
+  @override
+  @JsonKey()
+  final String activity;
 
   @override
   String toString() {
-    return 'ForthModel(fruit: $fruit)';
+    return 'ForthModel(fruit: $fruit, activity: $activity)';
   }
 
   @override
@@ -108,11 +122,13 @@ class _$_ForthModel implements _ForthModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ForthModel &&
-            (identical(other.fruit, fruit) || other.fruit == fruit));
+            (identical(other.fruit, fruit) || other.fruit == fruit) &&
+            (identical(other.activity, activity) ||
+                other.activity == activity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fruit);
+  int get hashCode => Object.hash(runtimeType, fruit, activity);
 
   @JsonKey(ignore: true)
   @override
@@ -122,10 +138,13 @@ class _$_ForthModel implements _ForthModel {
 }
 
 abstract class _ForthModel implements ForthModel {
-  const factory _ForthModel({final String fruit}) = _$_ForthModel;
+  const factory _ForthModel({final String fruit, final String activity}) =
+      _$_ForthModel;
 
   @override
   String get fruit;
+  @override
+  String get activity;
   @override
   @JsonKey(ignore: true)
   _$$_ForthModelCopyWith<_$_ForthModel> get copyWith =>
