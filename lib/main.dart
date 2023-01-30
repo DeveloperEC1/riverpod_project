@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/presentation/pages/page_forth.dart';
-import 'object_box.dart';
 import 'data/models/forth_model/forth_model.dart';
 import 'presentation/pages/page_first.dart';
 import 'presentation/pages/page_second.dart';
 import 'presentation/pages/page_third.dart';
 import 'presentation/providers/provider_first.dart';
 import 'presentation/providers/provider_forth.dart';
+import 'object_box.dart';
 
 final providerFirst =
     ChangeNotifierProvider.autoDispose((ref) => ProviderFirst());

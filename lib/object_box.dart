@@ -1,16 +1,16 @@
 import 'package:objectbox/objectbox.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-import 'data/models/user_data_model.dart';
+import 'data/models/activities_model.dart';
 
 import 'objectbox.g.dart';
 
 class ObjectBox {
   late final Store store;
-  static late final Box<UserDataModel> userDataBox;
+  static late final Box<ActivitiesModel> activitiesBox;
 
   ObjectBox._create(this.store) {
-    userDataBox = Box<UserDataModel>(store);
+    activitiesBox = Box<ActivitiesModel>(store);
   }
 
   static Future<ObjectBox> create() async {
@@ -20,21 +20,21 @@ class ObjectBox {
     return ObjectBox._create(store);
   }
 
-  static UserDataModel? getUserDataObjectBox() {
-    return userDataBox.get(1);
+  static ActivitiesModel? getUserDataObjectBox() {
+    return activitiesBox.get(1);
   }
 
-  static void addUserData(UserDataModel userDataModel) {
-    final id = userDataBox.put(userDataModel);
-    userDataModel = userDataBox.get(id)!;
-    userDataBox.put(userDataModel);
+  static void addUserData(ActivitiesModel activitiesModel) {
+    activitiesModel.id = 0;
+    activitiesBox.put(activitiesModel);
   }
 
-  static void putUserData(UserDataModel userDataModel) {
-    userDataBox.put(userDataModel);
+  static void putUserData(ActivitiesModel activitiesModel) {
+    activitiesModel.id = 1;
+    activitiesBox.put(activitiesModel);
   }
 
   static void removeUserData() {
-    userDataBox.remove(1);
+    activitiesBox.remove(1);
   }
 }

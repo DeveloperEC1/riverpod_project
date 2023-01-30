@@ -4,62 +4,54 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:5788514939070495532",
-      "lastPropertyId": "15:8418095341156710762",
-      "name": "UserDataModel",
+      "id": "2:1340219914884489183",
+      "lastPropertyId": "8:3355033257893873778",
+      "name": "ActivitiesModel",
       "properties": [
         {
-          "id": "1:8142160169920548244",
+          "id": "1:2799064268227633869",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "3:1580052332813176949",
+          "id": "2:4559709671795437926",
           "name": "activity",
           "type": 9
         },
         {
-          "id": "10:2709354203586908039",
+          "id": "3:4458440145937714443",
           "name": "type",
           "type": 9
         },
         {
-          "id": "11:4925416794264091475",
+          "id": "4:799071338036661430",
           "name": "participants",
           "type": 6
         },
         {
-          "id": "12:3779738329430608850",
-          "name": "price",
-          "type": 8
-        },
-        {
-          "id": "13:6664435693509081332",
+          "id": "6:800618598985247629",
           "name": "link",
           "type": 9
         },
         {
-          "id": "14:9217832627989040780",
+          "id": "7:3169262022461722276",
           "name": "key",
           "type": 9
-        },
-        {
-          "id": "15:8418095341156710762",
-          "name": "accessibility",
-          "type": 8
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "1:5788514939070495532",
+  "lastEntityId": "2:1340219914884489183",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    5788514939070495532
+  ],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
     6676600451827140482,
@@ -68,7 +60,17 @@
     3051769538903389671,
     7924711319947453250,
     2179329984912906335,
-    7704156817749290466
+    7704156817749290466,
+    8142160169920548244,
+    1580052332813176949,
+    2709354203586908039,
+    4925416794264091475,
+    3779738329430608850,
+    6664435693509081332,
+    9217832627989040780,
+    8418095341156710762,
+    4769928590305550073,
+    3355033257893873778
   ],
   "retiredRelationUids": [],
   "version": 1

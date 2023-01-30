@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/data/models/activities_model.dart';
 import 'package:riverpod_project/data/models/forth_model/forth_model.dart';
-import 'package:riverpod_project/data/models/user_data_model.dart';
 import 'package:riverpod_project/object_box.dart';
 import '../../../data/models/stream_model.dart';
 import '../../data/data_resources/remotes/rest_client_repository.dart';
@@ -50,22 +49,14 @@ class ProviderForth extends StateNotifier<ForthModel> {
   }
 
   void handleGetAllActivitiesResult(ActivitiesModel activitiesModel) {
-    UserDataModel? userDataModelVar = ObjectBox.getUserDataObjectBox();
-    if (kDebugMode) {
-      print(userDataModelVar?.activity);
-    }
+    state = state.copyWith(activity: activitiesModel.activity);
 
-    if (userDataModelVar == null) {
-      state = state.copyWith(activity: activitiesModel.activity);
-    } else {
-      state = state.copyWith(activity: userDataModelVar.activity);
-    }
-
-    userDataModelVar?.activity = activitiesModel.activity;
-    ObjectBox.putUserData(userDataModelVar!);
+    ActivitiesModel? activitiesModelVar = ObjectBox.getUserDataObjectBox();
+    activitiesModelVar = activitiesModel;
+    ObjectBox.putUserData(activitiesModelVar);
 
     if (kDebugMode) {
-      print(userDataModelVar.activity);
+      print(ObjectBox.getUserDataObjectBox()?.activity);
     }
   }
 

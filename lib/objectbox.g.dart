@@ -14,56 +14,46 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'data/models/user_data_model.dart';
+import 'data/models/activities_model.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 5788514939070495532),
-      name: 'UserDataModel',
-      lastPropertyId: const IdUid(15, 8418095341156710762),
+      id: const IdUid(2, 1340219914884489183),
+      name: 'ActivitiesModel',
+      lastPropertyId: const IdUid(8, 3355033257893873778),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 8142160169920548244),
+            id: const IdUid(1, 2799064268227633869),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(3, 1580052332813176949),
+            id: const IdUid(2, 4559709671795437926),
             name: 'activity',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(10, 2709354203586908039),
+            id: const IdUid(3, 4458440145937714443),
             name: 'type',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(11, 4925416794264091475),
+            id: const IdUid(4, 799071338036661430),
             name: 'participants',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(12, 3779738329430608850),
-            name: 'price',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 6664435693509081332),
+            id: const IdUid(6, 800618598985247629),
             name: 'link',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(14, 9217832627989040780),
+            id: const IdUid(7, 3169262022461722276),
             name: 'key',
             type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 8418095341156710762),
-            name: 'accessibility',
-            type: 8,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -90,11 +80,11 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(1, 5788514939070495532),
+      lastEntityId: const IdUid(2, 1340219914884489183),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [],
+      retiredEntityUids: const [5788514939070495532],
       retiredIndexUids: const [],
       retiredPropertyUids: const [
         6676600451827140482,
@@ -103,7 +93,17 @@ ModelDefinition getObjectBoxModel() {
         3051769538903389671,
         7924711319947453250,
         2179329984912906335,
-        7704156817749290466
+        7704156817749290466,
+        8142160169920548244,
+        1580052332813176949,
+        2709354203586908039,
+        4925416794264091475,
+        3779738329430608850,
+        6664435693509081332,
+        9217832627989040780,
+        8418095341156710762,
+        4769928590305550073,
+        3355033257893873778
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -111,28 +111,26 @@ ModelDefinition getObjectBoxModel() {
       version: 1);
 
   final bindings = <Type, EntityDefinition>{
-    UserDataModel: EntityDefinition<UserDataModel>(
+    ActivitiesModel: EntityDefinition<ActivitiesModel>(
         model: _entities[0],
-        toOneRelations: (UserDataModel object) => [],
-        toManyRelations: (UserDataModel object) => {},
-        getId: (UserDataModel object) => object.id,
-        setId: (UserDataModel object, int id) {
+        toOneRelations: (ActivitiesModel object) => [],
+        toManyRelations: (ActivitiesModel object) => {},
+        getId: (ActivitiesModel object) => object.id,
+        setId: (ActivitiesModel object, int id) {
           object.id = id;
         },
-        objectToFB: (UserDataModel object, fb.Builder fbb) {
+        objectToFB: (ActivitiesModel object, fb.Builder fbb) {
           final activityOffset = fbb.writeString(object.activity);
           final typeOffset = fbb.writeString(object.type);
           final linkOffset = fbb.writeString(object.link);
           final keyOffset = fbb.writeString(object.key);
-          fbb.startTable(16);
+          fbb.startTable(9);
           fbb.addInt64(0, object.id);
-          fbb.addOffset(2, activityOffset);
-          fbb.addOffset(9, typeOffset);
-          fbb.addInt64(10, object.participants);
-          fbb.addFloat64(11, object.price);
-          fbb.addOffset(12, linkOffset);
-          fbb.addOffset(13, keyOffset);
-          fbb.addFloat64(14, object.accessibility);
+          fbb.addOffset(1, activityOffset);
+          fbb.addOffset(2, typeOffset);
+          fbb.addInt64(3, object.participants);
+          fbb.addOffset(5, linkOffset);
+          fbb.addOffset(6, keyOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -140,22 +138,18 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
 
-          final object = UserDataModel()
+          final object = ActivitiesModel()
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0)
             ..activity = const fb.StringReader(asciiOptimization: true)
-                .vTableGet(buffer, rootOffset, 8, '')
+                .vTableGet(buffer, rootOffset, 6, '')
             ..type = const fb.StringReader(asciiOptimization: true)
-                .vTableGet(buffer, rootOffset, 22, '')
+                .vTableGet(buffer, rootOffset, 8, '')
             ..participants =
-                const fb.Int64Reader().vTableGet(buffer, rootOffset, 24, 0)
-            ..price =
-                const fb.Float64Reader().vTableGet(buffer, rootOffset, 26, 0)
+                const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0)
             ..link = const fb.StringReader(asciiOptimization: true)
-                .vTableGet(buffer, rootOffset, 28, '')
+                .vTableGet(buffer, rootOffset, 14, '')
             ..key = const fb.StringReader(asciiOptimization: true)
-                .vTableGet(buffer, rootOffset, 30, '')
-            ..accessibility =
-                const fb.Float64Reader().vTableGet(buffer, rootOffset, 32, 0);
+                .vTableGet(buffer, rootOffset, 16, '');
 
           return object;
         })
@@ -164,37 +158,29 @@ ModelDefinition getObjectBoxModel() {
   return ModelDefinition(model, bindings);
 }
 
-/// [UserDataModel] entity fields to define ObjectBox queries.
-class UserDataModel_ {
-  /// see [UserDataModel.id]
+/// [ActivitiesModel] entity fields to define ObjectBox queries.
+class ActivitiesModel_ {
+  /// see [ActivitiesModel.id]
   static final id =
-      QueryIntegerProperty<UserDataModel>(_entities[0].properties[0]);
+      QueryIntegerProperty<ActivitiesModel>(_entities[0].properties[0]);
 
-  /// see [UserDataModel.activity]
+  /// see [ActivitiesModel.activity]
   static final activity =
-      QueryStringProperty<UserDataModel>(_entities[0].properties[1]);
+      QueryStringProperty<ActivitiesModel>(_entities[0].properties[1]);
 
-  /// see [UserDataModel.type]
+  /// see [ActivitiesModel.type]
   static final type =
-      QueryStringProperty<UserDataModel>(_entities[0].properties[2]);
+      QueryStringProperty<ActivitiesModel>(_entities[0].properties[2]);
 
-  /// see [UserDataModel.participants]
+  /// see [ActivitiesModel.participants]
   static final participants =
-      QueryIntegerProperty<UserDataModel>(_entities[0].properties[3]);
+      QueryIntegerProperty<ActivitiesModel>(_entities[0].properties[3]);
 
-  /// see [UserDataModel.price]
-  static final price =
-      QueryDoubleProperty<UserDataModel>(_entities[0].properties[4]);
-
-  /// see [UserDataModel.link]
+  /// see [ActivitiesModel.link]
   static final link =
-      QueryStringProperty<UserDataModel>(_entities[0].properties[5]);
+      QueryStringProperty<ActivitiesModel>(_entities[0].properties[4]);
 
-  /// see [UserDataModel.key]
+  /// see [ActivitiesModel.key]
   static final key =
-      QueryStringProperty<UserDataModel>(_entities[0].properties[6]);
-
-  /// see [UserDataModel.accessibility]
-  static final accessibility =
-      QueryDoubleProperty<UserDataModel>(_entities[0].properties[7]);
+      QueryStringProperty<ActivitiesModel>(_entities[0].properties[5]);
 }
