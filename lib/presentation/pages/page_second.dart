@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_project/data/models/stream_model.dart';
 import '../../main.dart';
+import '../providers/provider_first.dart';
 
 class PageSecond extends ConsumerWidget {
   const PageSecond({super.key});

@@ -1,7 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 import '../../../data/models/stream_model.dart';
+
+final providerFirst =
+    ChangeNotifierProvider.autoDispose((ref) => ProviderFirst());
 
 class ProviderFirst extends ChangeNotifier {
   StreamController<StreamModel> streamController = StreamController.broadcast();

@@ -14,6 +14,8 @@ class RestClientRepository {
   final client = RestClient(Dio());
 
   Future<ActivitiesModel> getAllActivities() async {
+    // ProviderScope.containerOf(context, listen: false).read(providerForth.notifier).printValue();
+
     ActivitiesModel activitiesModel = ActivitiesModel();
 
     await client

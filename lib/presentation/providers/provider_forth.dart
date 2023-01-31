@@ -8,6 +8,10 @@ import 'package:riverpod_project/object_box.dart';
 import '../../../data/models/stream_model.dart';
 import '../../data/data_resources/remotes/rest_client_repository.dart';
 
+final providerForth =
+    StateNotifierProvider.autoDispose<ProviderForth, ForthModel>(
+        (ref) => ProviderForth());
+
 class ProviderForth extends StateNotifier<ForthModel> {
   ProviderForth() : super(const ForthModel()) {
     initListeners();
@@ -33,11 +37,17 @@ class ProviderForth extends StateNotifier<ForthModel> {
   }
 
   void initData() {
-    state = state.copyWith(fruit: 'Unknown');
+    state = state.copyWith(fruit: 'Unknown', activity: "");
   }
 
   void setFruit(String fruit) {
     state = state.copyWith(fruit: fruit);
+  }
+
+  void printValue() {
+    if (kDebugMode) {
+      print("Check1");
+    }
   }
 
   void getAllActivities() {
