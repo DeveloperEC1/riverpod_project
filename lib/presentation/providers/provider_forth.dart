@@ -13,10 +13,7 @@ final providerForth =
         (ref) => ProviderForth());
 
 class ProviderForth extends StateNotifier<ForthModel> {
-  ProviderForth() : super(const ForthModel()) {
-    initListeners();
-    getAllActivities();
-  }
+  ProviderForth() : super(const ForthModel());
 
   StreamController<StreamModel> streamController = StreamController.broadcast();
   TextEditingController textEditingController = TextEditingController();
