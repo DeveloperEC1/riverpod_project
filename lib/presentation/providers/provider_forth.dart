@@ -41,6 +41,10 @@ class ProviderForth extends StateNotifier<ForthModel> {
     state = state.copyWith(fruit: fruit);
   }
 
+  void setActivity(String activity) {
+    state = state.copyWith(activity: activity);
+  }
+
   void printValue() {
     if (kDebugMode) {
       print("Check1");
@@ -56,7 +60,7 @@ class ProviderForth extends StateNotifier<ForthModel> {
   }
 
   void handleGetAllActivitiesResult(ActivitiesModel activitiesModel) {
-    state = state.copyWith(activity: activitiesModel.activity);
+    setActivity(activitiesModel.activity);
 
     ActivitiesModel? activitiesModelVar = ObjectBox.getUserDataObjectBox();
     activitiesModelVar = activitiesModel;
