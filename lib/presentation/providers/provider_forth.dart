@@ -34,7 +34,7 @@ class ProviderForth extends StateNotifier<ForthModel> {
   }
 
   void initData() {
-    state = state.copyWith(fruit: 'Unknown', activity: "");
+    state = const ForthModel();
   }
 
   void setFruit(String fruit) {

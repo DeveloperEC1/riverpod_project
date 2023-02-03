@@ -9,7 +9,7 @@ class PageSecond extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final providerFirstVar = ref.watch(providerFirst);
+    final providerFirstWatch = ref.watch(providerFirst);
 
     return Column(
       children: [
@@ -21,7 +21,7 @@ class PageSecond extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            providerFirstVar.streamController.add(StreamModel('init_data'));
+            providerFirstWatch.streamController.add(StreamModel('init_data'));
           },
           child: const Text('Update fruit'),
         ),
